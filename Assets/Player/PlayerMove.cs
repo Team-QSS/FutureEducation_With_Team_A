@@ -4,7 +4,7 @@ namespace Player
 {
     public class PlayerMove : MonoBehaviour
     {
-        public static float moveSpeed = 250;
+        public static float moveSpeed = 3;
         public static bool canMove;
         private int _direction = 8;
         public static string Dir;
@@ -44,7 +44,7 @@ namespace Player
             }
             else
             {
-                _rb.velocity = new Vector2(0, 0);
+                _rb.linearVelocity = new Vector2(0, 0);
             }
  
         }
@@ -56,7 +56,7 @@ namespace Player
                 case 0:
                     // UP
                     Dir = "up";
-                    _rb.velocity = new Vector2(0f, moveSpeed * Time.deltaTime);
+                    _rb.linearVelocity = new Vector2(0f, moveSpeed);
                     break;
                 case 1:
                     // UP-RIGHT
@@ -64,14 +64,14 @@ namespace Player
                 case 2:
                     // RIGHT
                     Dir = "right";
-                    _rb.velocity = new Vector2(moveSpeed * Time.deltaTime, 0f);
+                    _rb.linearVelocity = new Vector2(moveSpeed, 0f);
                     break;
                 case 3:
                     // DOWN-RIGHT
                     break;
                 case 4:
                     Dir = "down";
-                    _rb.velocity = new Vector2(0f, -moveSpeed * Time.deltaTime);
+                    _rb.linearVelocity = new Vector2(0f, -moveSpeed);
                     // DOWN
                     break;
                 case 5:
@@ -80,7 +80,7 @@ namespace Player
                 case 6:
                     // LEFT
                     Dir = "left";
-                    _rb.velocity = new Vector2(-moveSpeed * Time.deltaTime, 0f);
+                    _rb.linearVelocity = new Vector2(-moveSpeed, 0f);
                     break;
                 case 7:
                     // UP_LEFT
@@ -88,7 +88,7 @@ namespace Player
                 case 8:
                     // STAY
                     Dir = "stay";
-                    _rb.velocity = new Vector2(0f, 0f);
+                    _rb.linearVelocity = new Vector2(0f, 0f);
                     break;
             }
         }
